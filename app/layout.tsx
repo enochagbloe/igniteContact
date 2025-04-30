@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
+import { SessionProvider } from "next-auth/react";
+import { ReactNode } from "react";
+import { auth }  from '@/auth'; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,13 +22,12 @@ export const metadata: Metadata = {
   description: "C3 Ignite Church Save Contact ......",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const RootLayout =  async ({children} : {children:ReactNode}) => {
+
+  const session = await auth()
   return (
     <html lang="en" suppressContentEditableWarning>
+      <SessionProvider session ={session}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -35,7 +38,10 @@ export default function RootLayout({
           disableTransitionOnChange>
         {children}
         </ThemeProvider>
+        <Toaster/>
       </body>
+      </SessionProvider>
     </html>
   );
 }
+export default RootLayout

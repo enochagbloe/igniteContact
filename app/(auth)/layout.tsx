@@ -3,8 +3,8 @@ import React, { ReactNode } from "react";
 import SocialAuthForm from "@/components/ui/forms/SocialAuthForm";
 const Authlayout = ({ children }: { children: ReactNode }) => {
   return (
-    <main className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <section className="flex flex-col justify-between min-w-full max-w-md p-6 bg-white rounded-lg shadow-md dark:bg-gray-800 sm:min-w-[540px] sm:px-8">
+    <main className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-black">
+      <section className="flex flex-col justify-between min-w-full max-w-md p-6 bg-white rounded-lg shadow-md dark:bg-[#1B1212] sm:min-w-[540px] sm:px-8">
         <div className="flex text-2xl font-bold text-gray-900 dark:text-white items-center">
           <h1>Join the c3s</h1>
           <div className="flex flex-1 items-center justify-end">
