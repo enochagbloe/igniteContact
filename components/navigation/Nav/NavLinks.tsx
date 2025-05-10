@@ -5,6 +5,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { SheetClose } from "../../ui/sheet";
 
 const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
   const path = usePathname();
@@ -20,6 +21,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
 
         if (item.route === "/profile") {
           if (userId) item.route = `${item.route}/${userId}`;
+          else return null;
         }
 
         // display the links with image and name
@@ -30,14 +32,36 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
             className={cn(
               isActive
                 ? "bg-amber-500 text-white"
-                : "text-gray-500 dark:text-gray-400"
+                : "hover:bg-amber-500 hover:text-black text-black dark:text-white",
+              "flex gap-2 rounded-2xl items-center px-6 p-4 transition-colors duration-200"
             )}
           >
-            <Image src={item.imgURL} alt={item.label} width={20} height={20} />
-            <p>{item.label}</p>
+            <Image
+              src={item.imgURL}
+              alt={item.label}
+              width={20}
+              height={20}
+              className={cn(
+                !isActive ? "invert dark:invert-1" : "dark:invert-0 "
+              )}
+            />
+            <p
+              className={cn(
+                isActive ? "font-bold" : "font-medium",
+                "hidden lg:inline" // only show text label from large screen and above
+              )}
+            >
+              {item.label}
+            </p>
           </Link>
         );
-        return LinkComponent;
+        return isMobileNav ? (
+          <SheetClose asChild key={item.route}>
+            {LinkComponent}
+          </SheetClose>
+        ) : (
+          <React.Fragment key={item.route}>{LinkComponent}</React.Fragment>
+        );
       })}
     </>
   );

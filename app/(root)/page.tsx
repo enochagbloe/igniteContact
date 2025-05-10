@@ -4,7 +4,7 @@ import { auth } from "@/auth";
 const Home = async () => {
   const session = await auth()
   console.log(session);
-  return <div className="hidden">home</div>;
+  return <div className="">home</div>;
 };
 
 export default Home;

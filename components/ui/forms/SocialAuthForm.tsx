@@ -16,6 +16,8 @@ const SocialAuthForm = () => {
       });
 
       if (result?.ok) {
+        toast.success("Sign-in successful!");
+        // Redirect to the desired URL after successful sign-in
         window.location.href = result.url || ROUTES.HOME;
       } else {
         toast.error("Sign-in failed. Please try again.");

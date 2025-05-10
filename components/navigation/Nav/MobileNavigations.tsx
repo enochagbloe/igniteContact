@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../button";
+import { Button } from "../../ui/button";
 import NavLinks from "./NavLinks";
 
 // Define ROUTES object
@@ -23,7 +23,7 @@ const ROUTES = {
 const MobileNavigations = () => {
   return (
     <Sheet>
-      <SheetTrigger asChild className="">
+      <SheetTrigger asChild className="sm:hidden">
         <Image
           src="/icons/hamburger.svg"
           alt="hamburger"
@@ -47,10 +47,10 @@ const MobileNavigations = () => {
         </Link>
         <div className="no-scrollbar flex flex-col gap-4 mt-6 h-full overflow-y-auto px-5">
           <SheetClose asChild className="flex flex-col gap-6 h-full mx-4 py-5">
-            <NavLinks isMobileNav/>
+            <NavLinks isMobileNav />
           </SheetClose>
           <div className="flex flex-col gap-4 mt-auto mb-6  ">
-          <SheetClose asChild>
+            <SheetClose asChild>
               <Link href={ROUTES.SIGN_IN}>
                 <Button variant="outline" className="w-full">
                   <span>Log In</span>

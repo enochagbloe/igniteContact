@@ -7,6 +7,7 @@ import { SessionProvider } from "next-auth/react";
 import { ReactNode } from "react";
 import { auth }  from '@/auth'; 
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
