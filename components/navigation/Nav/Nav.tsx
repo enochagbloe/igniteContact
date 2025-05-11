@@ -5,7 +5,7 @@ import Theming from "./theme";
 import MobileNavigations from "./MobileNavigations";
 const NavBar = () => {
   return (
-      <nav className="flex justify-between items-center p-4 m-3 border">
+      <nav className="flex justify-between items-center p-4 m-3 shadow-md rounded-lg bg-white dark:bg-black sticky top-0 z-10">
         <Link href={"/"} className="gap-2 flex items-center">
           <Image
             className="dark:invert"
