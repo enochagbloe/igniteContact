@@ -5,18 +5,18 @@ import { Card, CardContent } from "@/components/ui/card";
 type VerseCardProps = {
   verse: string;
   reference: string;
-  imageUrl: string;
+ // imageUrl: string;
   title: string;
 };
 
 const VerseOfTheDayCard = ({
   verse,
   reference,
-  imageUrl,
+ // imageUrl,
   title,
 }: VerseCardProps) => {
   return (
-    <div className="flex justify-center h-screen">
+<div className="flex justify-center h-screen">
       <Card className="max-w-[80vw] h-[500px] shadow-lg rounded-lg px-0 py-0">
         <CardContent className="grid grid-cols-5 py-0 px-0 h-full">
           {" "}

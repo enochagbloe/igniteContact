@@ -47,7 +47,7 @@ const RightSideBar = () => {
           ))}
         </div>
         <div className="mt-10 flex flex-col gap-4">
-          <h3>
+          <span>
             <h3 className="text-lg font-semibold mb-3">Popular Tags</h3>
             <div className="flex flex-col gap-4">
               {popularTags.map(({ _id, tag, question }) => (
@@ -61,7 +61,7 @@ const RightSideBar = () => {
                 />
               ))}
             </div>
-          </h3>
+          </span>
         </div>
       </div>
     </section>
