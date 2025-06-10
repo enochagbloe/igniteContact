@@ -52,9 +52,10 @@ const RightSideBar = () => {
             <div className="flex flex-col gap-4">
               {popularTags.map(({ _id, tag, question }) => (
                 <TagCards
+                
+                  name={tag}
                   key={_id}
                   _id={_id}
-                  tag={tag}
                   question={question}
                   showCount
                   compact

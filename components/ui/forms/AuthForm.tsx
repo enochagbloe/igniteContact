@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   DefaultValues,
@@ -34,7 +35,7 @@ const AuthForm = <T extends FieldValues>({
   formType,
   schema,
   defaultValues,
-  onSubmit,
+  // onSubmit,
 }: AuthFormProps<T>) => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof schema>>({
@@ -90,7 +91,7 @@ const AuthForm = <T extends FieldValues>({
         </Button>
         {formType === "SIGN_IN" ? (
           <p>
-            Don't have an Account? {""}
+            Don&#39;t have an Account? {""}
             <Link className="text-amber-500" href={ROUTES.SIGN_UP}>
               Sign Up
             </Link>

@@ -6,7 +6,7 @@ import Link from "next/link";
 // define your props
 interface Props {
   _id: number;
-  tag: string;
+  name: string;
   question: number;
   showCount?: boolean;
   compact?: boolean;
@@ -14,7 +14,7 @@ interface Props {
 // destructure your props
 // define your TagCards component
 // this component will be used to display the tags in the right side bar
-const TagCards = ({ _id, tag, question, showCount, compact }: Props) => {
+const TagCards = ({ _id, name, question, showCount,  }: Props) => {
   return (
     <Link
       href={ROUTES.TAG(String(_id))}
@@ -22,7 +22,7 @@ const TagCards = ({ _id, tag, question, showCount, compact }: Props) => {
     >
       <Badge className="py-2 uppercase px-4 border-none rounded-[5px] h-[24px]">
         <div className="flex-center space-x-2 ">
-          <span>{tag}</span>
+          <span>{name}</span>
         </div>
       </Badge>
       {showCount && <p className="">{question}</p>}
