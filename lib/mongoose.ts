@@ -9,7 +9,7 @@ if (!MONGODB_URI) {
 }
 //cache the mongoose instance
 interface MongooseCache {
-    conn: mongoose.Connection | null;
+    conn: Mongoose | null;
     promise: Promise<Mongoose> | null;
 }
 // Global cache for mongos connection
@@ -27,13 +27,18 @@ if (!cache) {
 
 // Function to connect to thr MongoDB database
 const dbConnect = async (): Promise<Mongoose> => {
-    if (!cache.conn) {
+    // Check if the connection is already established
+    // If the connection is already established, return the cached connection
+    if (cache.conn) {
+        return cache.conn;
+    }
+    // if the connection is already in progress, wait for it to resolve
+        if (!cache.promise) {
         cache.promise = mongoose.connect(MONGODB_URI, {
             dbName: 'c3 ignite community',
         })
-        .then((result: Mongoose) => {
+        .then((result) => {
             console.log('MongoDB connected successfully');
-            cache.conn = mongoose.connection;
             return result;
         })
         .catch((error) => {
@@ -41,9 +46,7 @@ const dbConnect = async (): Promise<Mongoose> => {
             throw new Error('Failed to connect to MongoDB');
         });
     }
-    if (!cache.promise) {
-        throw new Error('Failed to create a connection promise');
-    }
-    return cache.promise;
+    cache.conn = await cache.promise;
+    return cache.conn;
 }
 export default dbConnect;
