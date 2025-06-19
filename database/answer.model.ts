@@ -1,10 +1,11 @@
 // Create answer Schema
 
-import { models, Schema, model } from "mongoose";
+import { models, Schema, model, Types } from "mongoose";
 
 export interface IAnswer {
-  questionId: string;
-  userId: string;
+    //fix bug
+  questionId: Types.ObjectId;
+  userId: Types.ObjectId;
   answer: string;
 }
 const AnswerSchema = new Schema(
