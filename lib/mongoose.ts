@@ -2,7 +2,7 @@ import mongoose, { Mongoose } from 'mongoose';
 
 //define the connection string
 const MONGODB_URI = process.env.MONGODB_URI as string;
-// Check if the environment variable is set
+// Check if the string exits in the environment variable
 
 if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
