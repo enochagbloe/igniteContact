@@ -6,6 +6,8 @@ import Link from "next/link";
 import Localsearch from "../../components/Search/LocalSearch";
 import HomeFilters from "../../components/filters/HomeFilters";
 import QuestionCards from "../../components/cards/QuestionCards";
+import handleError from "@/lib/handlers/error";
+import dbConnect from "@/lib/mongoose";
 // static data for the search to work
 const questions = [
   {
@@ -60,13 +62,20 @@ const questions = [
     createdAt: new Date(),
   },
 ];
-
+const test = async () => {
+  try {
+    await dbConnect();
+  } catch (error) {
+    return handleError(error);
+  }
+};
 interface searchParams {
   searchParams: {
     [key: string]: string;
   };
 }
 const Home = async ({ searchParams }: searchParams) => {
+  await test();
   const { query = "", filter = "" } = await searchParams;
 
   const filteredQuestions = questions.filter((question) => {
