@@ -34,4 +34,9 @@ export const sidebarLinks = [
     route: "/ask-question",
     label: "Ask a question",
   },
+  {
+    imgURL: "/icons/question.svg",
+    route: "/last-post",
+    label: "My Last Post",
+  },
 ];

@@ -19,14 +19,13 @@ const questions = [
       { _id: "2", name: "faith" },
       { _id: "3", name: "suffering" },
     ],
-    author: [
-      {
-        _id: "1",
-        name: "John Doe",
-        image:
-          "https://img.freepik.com/free-photo/smiley-african-woman-with-golden-earrings_23-2148747979.jpg?semt=ais_items_boosted&w=740",
-      },
-    ],
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image:
+        "https://img.freepik.com/free-photo/smiley-african-woman-with-golden-earrings_23-2148747979.jpg?semt=ais_items_boosted&w=740",
+      value: "John Doe"
+    },
     answers: 10,
     views: 50,
     upvotes: 5,
@@ -40,10 +39,15 @@ const questions = [
       { _id: "1", name: "bibltical" },
       { _id: "2", name: "surrender" },
     ],
-    author: [{ _id: "1", name: "Samuel Doe" }],
-    answers: "1k",
-    views: "19k",
-    upvotes: "5k",
+    author: { 
+      _id: "1", 
+      name: "Samuel Doe",
+      image: "",
+      value: "Samuel Doe"
+    },
+    answers: 1000,
+    views: 19000,
+    upvotes: 5000,
     createdAt: new Date(),
   },
   {
@@ -55,10 +59,15 @@ const questions = [
       { _id: "2", name: "faith" },
       { _id: "3", name: "suffering" },
     ],
-    author: [{ _id: "1", name: "John Doe" }],
-    answers: "15k",
-    views: "1.2M",
-    upvotes: "120k",
+    author: { 
+      _id: "1", 
+      name: "John Doe",
+      image: "",
+      value: "John Doe"
+    },
+    answers: 15000,
+    views: 1200000,
+    upvotes: 120000,
     createdAt: new Date(),
   },
 ];
@@ -70,9 +79,9 @@ const test = async () => {
   }
 };
 interface searchParams {
-  searchParams: {
+  searchParams: Promise<{
     [key: string]: string;
-  };
+  }>;
 }
 const Home = async ({ searchParams }: searchParams) => {
   await test();
