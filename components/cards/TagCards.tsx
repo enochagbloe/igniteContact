@@ -6,7 +6,7 @@ import Image from "next/image";
 
 // define your props
 interface Props {
-  _id: string;
+  _id: string | number;
   name: string;
   question: number;
   showCount?: boolean;

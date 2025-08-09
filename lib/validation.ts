@@ -66,3 +66,15 @@ export const AskQuestionSchema = z.object({
     .max(5, { message: "You can add a maximum of 5 tags." })
     .min(1, { message: "At least one tag is required." }),
 });
+
+// create a user validation
+export const UserSchema = z.object({
+  name: z.string().min(1, { message: "Name is required." }),
+  username: z.string().min(3, { message: "Username must be at least 3 characters long." }),
+  email: z.string().min(1, { message: "Email is required." }).email({ message: "Invalid email address." }),
+  bio: z.string().optional(),
+  image: z.string().url({ message: "Invalid image URL." }).optional(),
+  location: z.string().min(2, { message: "Location must be at least 2 characters long." }).optional(),
+  portfolio: z.string().url({ message: "Invalid portfolio URL." }).optional(),
+  reputation: z.number().optional(),
+});

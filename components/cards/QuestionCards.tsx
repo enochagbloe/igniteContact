@@ -2,6 +2,7 @@ import TagCards from "@/components/cards/TagCards";
 import Metrics from "@/components/Metrics";
 import ROUTES from "@/constants/routes";
 import { getTimeStamp } from "@/lib/utils";
+import { Question, Tag } from "@/types/globals";
 import Link from "next/link";
 import React from "react";
 
@@ -23,14 +24,14 @@ const QuestionCards = ({
         </h3>
       </div>
       <div className="w-full flex gap-2 flex-wrap">
-        {tags.map((tag: Tags) => (
+        {tags.map((tag: Tag) => (
           <TagCards key={tag._id} _id={tag._id} name={tag.name} compact question={0} />
         ))}
       </div>
       {/* Metric for the author */}
       <div className="flex items-center justify-between mt-5">
         <Metrics
-          ImgUrl={author.image}
+          ImgUrl={author.image as string}
           alt={author.value}
           value={author.name}
           title={`asked ${getTimeStamp(createdAt)}`}

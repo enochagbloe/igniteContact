@@ -22,16 +22,19 @@ const Metrics = ({
   imgStyles,
   isAuthor,
 }: Props) => {
+  const fallbackImg = "/icons/avatar.svg";
   const metricData = (
     <>
       <Image
-        src={ImgUrl}
-        alt={alt}
+        src={ImgUrl && ImgUrl.trim() !== "" ? ImgUrl : fallbackImg}
+        alt={alt && alt.trim() !== "" ? alt : "User avatar"}
         width={16}
         height={16}
         className={`rounded-full object-contained ${imgStyles}`}
       />
-      <p className={` flex item-center gap-1 ${textSyles}`}>{value} {}</p>
+      <p className={` flex item-center gap-1 ${textSyles}`}>
+        {value} {}
+      </p>
       <span
         className={`small-regular line-clamp-1 text-black dark:text-white ${
           isAuthor ? "max-sm:hidden" : ""
