@@ -2,12 +2,33 @@ import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
-import { defineConfig } from "eslint/config";
 
-
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"], languageOptions: { globals: globals.browser } },
-  tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-]);
+export default [
+  {
+    files: ["**/*.{js,mjs,cjs,ts,tsx}"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.es2021,
+        ...globals.node,
+      },
+      ecmaVersion: "latest",
+      sourceType: "module",
+    },
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  {
+    ...pluginReact.configs.flat.recommended,
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+    rules: {
+      ...pluginReact.configs.flat.recommended.rules,
+      "react/react-in-jsx-scope": "off", // Next.js doesn't require React import
+      "react/prop-types": "off", // TypeScript handles prop validation
+    },
+  },
+];

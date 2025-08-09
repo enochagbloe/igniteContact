@@ -53,8 +53,8 @@ const TagCards = ({
         <button>{content}</button>
       </div>
     ) : (
-      <Link
-        href={ROUTES.TAG(String(_id))}
+        <Link
+        href={ROUTES.TAG(_id)}
         className="flex items-center justify-between gap-2"
       >
         {content}

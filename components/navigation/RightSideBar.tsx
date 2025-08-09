@@ -6,19 +6,19 @@ import Image from "next/image";
 
 // define you hot questions
 const hotQuestions = [
-  { _id: 1, question: "What is salvation?" },
-  { _id: 2, question: "What is Sin?" },
-  { _id: 3, question: "How do I reconcile faith with science? " },
-  { _id: 4, question: "What is the meaning of Total surrender?" },
-  { _id: 5, question: "Why does God allow suffering?" },
+  { _id: "1", question: "What is salvation?" },
+  { _id: "2", question: "What is Sin?" },
+  { _id: "3", question: "How do I reconcile faith with science? " },
+  { _id: "4", question: "What is the meaning of Total surrender?" },
+  { _id: "5", question: "Why does God allow suffering?" },
 ];
 // define your popular tags
 const popularTags = [
-  { _id: 1, tag: "Faith", question: 400 },
-  { _id: 2, tag: "Science", question: 100 },
-  { _id: 3, tag: "Salvation", question: 500 },
-  { _id: 4, tag: "Suffering", question: 200 },
-  { _id: 5, tag: "Sin", question: 300 },
+  { _id: "1", tag: "Faith", question: 400 },
+  { _id: "2", tag: "Science", question: 100 },
+  { _id: "3", tag: "Salvation", question: 500 },
+  { _id: "4", tag: "Suffering", question: 200 },
+  { _id: "5", tag: "Sin", question: 300 },
 ];
 
 // define the right side bar component

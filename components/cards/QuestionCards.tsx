@@ -17,7 +17,7 @@ const QuestionCards = ({
         <span className="subtitle-regular flex sm:hidden">
           {getTimeStamp(createdAt)}
         </span>
-        <Link href={ROUTES.QUESTION(_id.toString())} />
+        <Link href={ROUTES.QUESTION(_id)} />
         <h3 className="sm:font-bold text-[26px] base-semibold line-clamp-1 flex-1">
           {title}
         </h3>
@@ -34,7 +34,7 @@ const QuestionCards = ({
           alt={author.value}
           value={author.name}
           title={`asked ${getTimeStamp(createdAt)}`}
-          href={ROUTES.PROFILE(String(author._id))}
+          href={ROUTES.PROFILE(author._id)}
           textSyles="body-medium text-black dark:text-white"
           isAuthor
         />
