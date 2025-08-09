@@ -6,6 +6,5 @@ const ROUTES = {
     PROFILE: (id: string) => `/profile/${id}`,
     TAG: (id: string) => `/tags/${id}`,
     QUESTION: (id: string) => `/questions/${id}`,
-    LAST_POST: '/last-post',
 }
 export default ROUTES;

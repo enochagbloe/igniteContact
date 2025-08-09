@@ -55,4 +55,3 @@ const dbConnect = async (): Promise<Mongoose> => {
   return cache.conn;
 };
 export default dbConnect;
-export { dbConnect as connectToDatabase };
