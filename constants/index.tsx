@@ -20,6 +20,11 @@ export const sidebarLinks = [
     label: "Daily Devotions",
   },
   {
+    imgURL: "/icons/heart.svg",
+    route: "/prayers",
+    label: "Prayer Requests",
+  },
+  {
     imgURL: "/icons/tag.svg",
     route: "/tags",
     label: "Tags",

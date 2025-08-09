@@ -21,6 +21,13 @@ const popularTags = [
   { _id: "5", tag: "Sin", question: 300 },
 ];
 
+// Prayer statistics
+const prayerStats = [
+  { label: "Active Prayers", count: 24 },
+  { label: "Answered Prayers", count: 156 },
+  { label: "People Praying", count: 89 },
+];
+
 // define the right side bar component
 const RightSideBar = () => {
   return (
@@ -46,6 +53,26 @@ const RightSideBar = () => {
             </Link>
           ))}
         </div>
+        
+        {/* Prayer Statistics */}
+        <div className="mt-10 flex flex-col gap-4">
+          <h2 className="text-lg font-semibold">Prayer Statistics</h2>
+          <div className="flex flex-col gap-3">
+            {prayerStats.map(({ label, count }) => (
+              <div key={label} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <span className="text-sm font-medium">{label}</span>
+                <span className="text-lg font-bold text-amber-600 dark:text-amber-400">{count}</span>
+              </div>
+            ))}
+          </div>
+          <Link 
+            href={ROUTES.PRAYERS} 
+            className="text-sm text-amber-600 dark:text-amber-400 hover:underline"
+          >
+            View all prayers →
+          </Link>
+        </div>
+        
         <div className="mt-10 flex flex-col gap-4">
           <span>
             <h3 className="text-lg font-semibold mb-3">Popular Tags</h3>
