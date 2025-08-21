@@ -8,7 +8,7 @@ interface Props {
   value: string;
   title: string;
   href?: string;
-  textSyles: string;
+  textStyles: string;
   isAuthor?: boolean;
   imgStyles?: string;
 }
@@ -18,7 +18,7 @@ const Metrics = ({
   value,
   title,
   href,
-  textSyles,
+  textStyles,
   imgStyles,
   isAuthor,
 }: Props) => {
@@ -32,7 +32,7 @@ const Metrics = ({
         height={16}
         className={`rounded-full object-contained ${imgStyles}`}
       />
-      <p className={` flex item-center gap-1 ${textSyles}`}>
+      <p className={` flex item-center gap-1 ${textStyles}`}>
         {value} {}
       </p>
       <span

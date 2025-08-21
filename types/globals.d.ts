@@ -25,6 +25,29 @@ interface Question {
     answers: number;
 }
 
+// devotions 
+export type Devotion = {
+    scriptureCard?: boolean
+     slug: string;
+      title: string;
+      date: string; // ISO string
+      scripture: string; // e.g. "John 3:16"
+      excerpt: string;
+      content?: string; // full content for detail page
+      tags: string[];
+      author: {
+        name: string;
+        avatarUrl?: string;
+      };
+    };
+
+    export type VerseOfTheDay = {
+        title: string;
+        scripture: string;
+        scriptureContent: string;
+        imageUrl: string ;
+    };
+
 // create and read userRoutes
 type ActionResponse<T = null> ={
     success: boolean;

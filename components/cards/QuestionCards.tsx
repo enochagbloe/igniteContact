@@ -36,7 +36,7 @@ const QuestionCards = ({
           value={author.name}
           title={`asked ${getTimeStamp(createdAt)}`}
           href={ROUTES.PROFILE(String(author._id))}
-          textSyles="body-medium text-black dark:text-white"
+          textStyles="body-medium text-black dark:text-white"
           isAuthor
         />
         <div className="flex gap-6 mt-5">
@@ -46,7 +46,7 @@ const QuestionCards = ({
             alt="like"
             value={upvotes.toString()}
             title="vote"
-            textSyles="body-medium text-black dark:text-white"
+            textStyles="body-medium text-black dark:text-white"
           />
 
           {/* Metric for the views */}
@@ -55,7 +55,7 @@ const QuestionCards = ({
             alt="view"
             value={views.toString()}
             title="view"
-            textSyles="body-medium text-black dark:text-white"
+            textStyles="body-medium text-black dark:text-white"
           />
 
           {/* Metric for the answers */}
@@ -64,7 +64,7 @@ const QuestionCards = ({
             alt="answer"
             value={answers.toString()}
             title="answer"
-            textSyles="body-medium text-black dark:text-white"
+            textStyles="body-medium text-black dark:text-white"
           />
         </div>
       </div>

@@ -10,6 +10,16 @@ const nextConfig: NextConfig = {
         hostname: "static.vecteecy.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "img.freepik.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "www.bible.com",
+        port: "",
+      },
     ],
   },
 };
