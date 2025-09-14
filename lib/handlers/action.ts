@@ -36,3 +36,4 @@ export async function action<T>({
     );
   }
 }
+export default action;
