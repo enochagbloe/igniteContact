@@ -12,6 +12,17 @@ export const SignInSchema = z.object({
     .max(100, { message: "Password cannot exceed 100 characters" }),
 });
 
+export const signInWithOAuthSchema = z.object({
+  provider:  z.enum(["github", "google"]),
+  providerAccountId: z.string().min(1, { message: "Provider account ID is required." }),
+  user: z.object({
+    name: z.string().min(1, { message: "Name is required." }),
+    email: z.string().email({ message: "Please provide a valid email address." }),
+    username: z.string().min(3, { message: "Username must be at least 3 characters long." }),
+    image: z.string().url('Invalid image URL.').optional(),
+  })
+});
+
 export const SignUpSchema = z.object({
   username: z
     .string()

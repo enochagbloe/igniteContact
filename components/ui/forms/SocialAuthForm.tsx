@@ -29,25 +29,11 @@ const SocialAuthForm = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 mt-4 sm:flex-row sm:justify-between sm:items-center">
-      <Button
-        onClick={() => handleSignIn("github")}
-        type="button"
-        className="bg-black text-white dark:bg-white dark:text-black w-full sm:w-[220px] h-10 gap-1.5"
-      >
-        <Image
-          src="/icons/github.svg"
-          alt="GitHub"
-          height={23}
-          width={23}
-          className="dark:invert"
-        />
-        <span className="ml-2">Continue with GitHub</span>
-      </Button>
+    <div className="flex mt-4 w-full">
       <Button
         onClick={() => handleSignIn("google")}
         type="button"
-        className="bg-black text-white dark:bg-white dark:text-black w-full sm:w-[220px] h-10 gap-1.5"
+        className="bg-black text-white dark:bg-white dark:text-black w-full h-10 gap-1.5"
       >
         <Image src="/icons/google.svg" alt="Google" height={23} width={23} />
         <span className="ml-2">Continue with Google</span>
