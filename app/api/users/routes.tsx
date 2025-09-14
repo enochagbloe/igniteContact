@@ -3,7 +3,7 @@ import handleError from "@/lib/handlers/error";
 import { ValidationError } from "@/lib/http.error";
 import dbConnect from "@/lib/mongoose";
 import { UserSchema } from "@/lib/validation";
-import { APIResponse } from "@/types/globals";
+import { APIErrorResponse } from "@/types/globals";
 import { NextResponse } from "next/server";
 
 // getting all users from the database
@@ -13,7 +13,7 @@ export async function GET() {
         const users = await User.find();
         return NextResponse.json({ success: true, data: users }, { status: 200 });
     } catch (error) {
-        return handleError(error, "api") as APIResponse
+        return handleError(error, "api") as APIErrorResponse
     }
 }
 
@@ -46,6 +46,6 @@ export async function POST(request: Request) {
         const user = await User.create({ email, username });
         return NextResponse.json({ success: true, data: user }, { status: 201 });
     } catch (error) {
-        return handleError(error, "api") as APIResponse;
+        return handleError(error, "api") as APIErrorResponse;
     }
 }
