@@ -73,8 +73,7 @@ type ErrorResponse = ActionResponse & {
 //     };
 }
 
-//API Responses
-type APIResponse = NextResponse<ErrorResponse>
-
-//regular api response
-type APIResponse<T = null> = NextResponse<SuccessResponse<T>> | ErrorResponse;
+// API error response
+type APIErrorResponse = NextResponse<ErrorResponds> 
+// regular api response
+type APIResponse<T = null> = NextResponse<SuccessResponse<T> | ErrorResponse >
