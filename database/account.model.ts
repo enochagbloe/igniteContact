@@ -9,6 +9,7 @@ export interface IAccount {
     provider: string;
     providerAccountId: string;
 }
+export interface IAccountDoc extends IAccount, Document {}
 
 // create an Account Schema
 const AccountScheme = new Schema({
